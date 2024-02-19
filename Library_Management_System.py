@@ -3,7 +3,6 @@
 
 # In[ ]:
 
-
 class Library:
     def __init__(self):
         # Open the file in read/write mode
@@ -51,7 +50,7 @@ class Library:
         removed = False
         for book in self.book_list:
             # If the book is found, remove it from the list
-            if book_remove in book:
+            if book.startswith(book_remove):
                 removed = True
                 self.book_list.remove(book)
                 break
@@ -65,7 +64,10 @@ class Library:
             for book in self.book_list:
                 self.file.write(book + "\n")
         
-        print("Book removed successfully")
+            print("Book removed successfully")
+        
+        else:
+            print("Book not found")
         
         
     def __del__(self):
@@ -98,6 +100,7 @@ q) Quit
         break
     else:
         print("Invalid choice")
+
 
 
 # In[ ]:
